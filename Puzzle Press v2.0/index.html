@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PuzzlePress - Custom Puzzle Book Builder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <!-- Ensure font.js is loaded if it handles custom fonts for jsPDF -->
+    <script src="js/font.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <h1>PuzzlePress - Custom Puzzle Book Builder</h1>
+        <p>Build your unique puzzle book by adding and arranging puzzles below.</p>
+
+        <div class="section">
+            <h2>1. Global Book Settings</h2>
+            <div class="row">
+                <label for="trimSizeSelect">Trim size:</label>
+                <select id="trimSizeSelect">
+                    <option value="6x9" selected>6 × 9 in</option>
+                    <option value="8.5x11">8.5 × 11 in</option>
+                    <option value="5x8">5 × 8 in</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="fpNoteInput">Front-page note (optional):</label><br>
+                <textarea id="fpNoteInput" rows="4"
+                  placeholder="© 2025 Your Name – All rights reserved.">Copyright 2025 by My Puzzle Books Inc.</textarea>
+            </div>
+            <div class="row">
+              <label for="bgsInput">Background Images (optional, for bleed):</label>
+              <input type="file" id="bgsInput" accept="image/*" multiple />
+            </div>
+             <div class="row">
+                <label for="randomOrderCheckbox">Randomize Puzzle Order:</label>
+                <input type="checkbox" id="randomOrderCheckbox" />
+                <small>If checked, puzzles in the basket will be shuffled before PDF generation.</small>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Add Puzzles to Your Book</h2>
+            <div class="row">
+                <label for="puzzleTypeSelect">Select Puzzle Type:</label>
+                <select id="puzzleTypeSelect">
+                    <option value="">-- Select a Puzzle --</option>
+                    <option value="anagram_wordsearch">Anagram Word Search</option>
+                   <option value="cipher_wordsearch">Cipher Word Search</option>
+                    <option value="number_search">Number Search (Calculations)</option>
+                    <option value="maze">Maze</option>
+                    <!--  New puzzle types will be added here -->
+                </select>
+                <button id="addPuzzleBtn" disabled>Configure & Add</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Your Puzzle Book Basket</h2>
+            <div id="puzzleBasket" class="puzzle-basket-container">
+                <p id="emptyBasketMsg">Your basket is empty. Add some puzzles!</p>
+                <!-- Puzzles will be listed here -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. Generate Your Book</h2>
+            <div class="row">
+                <button id="buildPdfBtn" class="primary-action">Build PDF Book</button>
+            </div>
+            <p class="hint">
+            • All selected puzzles will be placed at the front of the book.<br>
+            • All solutions will be grouped at the back.<br>
+            • KDP ready PDF.
+            </p>
+            <div id="statusDiv"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Puzzle Configuration -->
+    <div id="puzzleConfigModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalBtn">&times;</span>
+            <h3 id="modalTitle">Configure Puzzle</h3>
+            <div id="modalFormContainer">
+                <!-- Puzzle-specific configuration form will be injected here -->
+            </div>
+            <div class="modal-actions">
+                <button id="savePuzzleConfigBtn">Add to Basket</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Application Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/pdf_utils.js"></script>
+    <script src="js/ui.js"></script>
+    
+    <!-- Puzzle Generators (Keep these as they are fundamental logic) -->
+    <script src="js/number_search_generator.js"></script>
+    <script src="js/maze_generator.js"></script>
+
+    <!-- Shared Puzzle Logic (e.g., grid building) -->
+    <script src="js/shared_puzzle_logic/grid_builder.js"></script> <!-- We will create this -->
+
+    <!-- Puzzle Modules -->
+    <script src="js/puzzle_modules/anagram_wordsearch.js"></script>
+   <script src="js/puzzle_modules/cipher_wordsearch.js"></script>
+    <script src="js/puzzle_modules/number_search.js"></script>
+     <script src="js/puzzle_modules/maze.js"></script>
+    <!-- New puzzle modules will be added here -->
+    
+    <script src="js/main.js"></script>
+
+</body>
+</html>

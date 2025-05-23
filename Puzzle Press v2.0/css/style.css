@@ -1,0 +1,274 @@
+/* css/style.css */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 32px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: #333;
+    margin-top: 0;
+}
+h1 { margin-bottom: 18px; text-align: center; }
+h2 { margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
+h3 { margin-bottom: 10px; }
+
+
+.section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.row:last-child {
+    border-bottom: none;
+}
+
+.row > label {
+    font-weight: 600;
+    min-width: 180px;
+    margin-right: 10px;
+}
+
+input[type="file"],
+input[type="number"],
+input[type="text"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+input[type="number"] {
+    width: 80px;
+}
+input[type="text"] {
+    flex-grow: 1;
+    max-width: 350px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    min-height: 80px;
+}
+
+label[for="fpNoteInput"] {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+button, .button-link {
+    padding: 10px 22px;
+    cursor: pointer;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+button:hover, .button-link:hover {
+    background-color: #4cae4c;
+}
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+button.primary-action {
+    background-color: #337ab7;
+    font-size: 1.1em;
+    padding: 12px 25px;
+}
+button.primary-action:hover {
+    background-color: #286090;
+}
+button.secondary-action {
+    background-color: #f0ad4e;
+}
+button.secondary-action:hover {
+    background-color: #ec971f;
+}
+button.danger-action {
+    background-color: #d9534f;
+}
+button.danger-action:hover {
+    background-color: #c9302c;
+}
+
+
+#statusDiv {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px dashed #ddd;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+.hint {
+    font-size: 0.9em;
+    margin: 15px 0;
+    color: #555;
+    padding: 10px;
+    background-color: #eef;
+    border-left: 3px solid #88c;
+    border-radius: 4px;
+}
+
+small {
+    font-size: 0.85em;
+    color: #777;
+    margin-left: 5px;
+    display: block; 
+    width: 100%; 
+}
+
+/* Puzzle Basket Styles */
+.puzzle-basket-container {
+    border: 1px solid #ddd;
+    padding: 15px;
+    min-height: 100px;
+    background-color: #fdfdfd;
+    border-radius: 4px;
+}
+.puzzle-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.puzzle-item-info {
+    flex-grow: 1;
+}
+.puzzle-item-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.puzzle-item-details {
+    font-size: 0.9em;
+    color: #555;
+}
+.puzzle-item-actions button {
+    margin-left: 8px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+.puzzle-item-actions .move-btn {
+    background-color: #777;
+}
+.puzzle-item-actions .move-btn:hover {
+    background-color: #555;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; 
+    padding: 25px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#modalFormContainer .row { /* Style rows within the modal */
+    padding-bottom: 10px;
+    /* border-bottom: 1px dashed #eee; */ /* Optional: for visual separation */
+}
+#modalFormContainer .row:last-child {
+    border-bottom: none;
+}
+.modal-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+.modal-actions button {
+    margin-left: 10px;
+}
+/* CSV Input Specific (if used in modal) */
+#modalFormContainer .csv-upload-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Make sure labels in modal forms are also clear */
+#modalFormContainer label {
+    min-width: 150px; /* Adjust if needed */
+}
+#modalFormContainer small {
+    width: auto; /* Let small tags flow better */
+    display: inline; /* Or inline-block */
+    margin-left: 10px;
+}
+#modalFormContainer input[type="file"] {
+    max-width: calc(100% - 170px); /* Example to prevent overflow if label is wide */
+}
